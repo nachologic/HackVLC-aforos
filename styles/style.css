@@ -1,0 +1,297 @@
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color:rgb(240,240,240);
+}
+* {
+  box-sizing: border-box;
+}
+
+#qrcode img,
+#exqrcode img{
+  margin:auto;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Roboto', sans-serif;
+}
+h1{
+  color: #008466;
+  text-align: center;
+  margin-bottom:20px;
+}
+
+
+h3 {
+  color: #008466;
+}
+
+h4 {
+  color: rgba(0,0,0,0.6);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.cookie-banner {
+  background-color: #008466;
+  position: fixed;
+  bottom:0;
+  color: white;
+  z-index: 99;
+  padding: 25px 25px;
+  text-align: center;
+  font-size:14px;
+  width: 100%;
+}
+
+.btn-cookie {
+  background-color: #fff;
+  border-color: #fff;
+  color: #008466;
+  min-width: 170px;
+}
+
+.cookie-banner p {
+  margin:0;
+  color: white;
+}
+
+.edit-icon {
+    position: absolute;
+    right:0;
+}
+
+.btn-space {
+  width: 5rem !important;
+  height: 5rem !important;
+}
+
+.space-value {
+    font-size: 65px;
+}
+
+.nav-links a {
+  color: rgba(0,0,0,0.6);
+}
+
+.nav-links a:hover {
+  color: #008466;
+}
+
+p {
+  color: rgba(0,0,0,0.6);
+}
+
+hr {
+  border-top: 4px solid #008466;
+  margin-top:.5rem;
+}
+
+i {
+  margin: 0 45px 0 0;
+}
+
+.jumbotron image{
+  /* background-image: url(/hackvlc-logo.png);
+  background-size: cover;
+  border-radius: 0; */
+  max-width:100%;
+}
+
+.container {
+  max-width: 728px;
+}
+
+.hero-header {
+  width: 100%;
+  margin: auto;
+  height: 30vh; /* Consider reducing this if it still appears too large */
+  background-image: url('../../Occupancy-App-UI/hackvlc-logo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Media query for desktops */
+@media (min-width: 1024px) {
+  .hero-header {
+    height: 30vh; /* Reduced from 70vh for a smaller header */
+    width: 50%;
+  }
+  .hero_image {
+    /* If the .hero_image appears too large, you might want to adjust max-height here */
+    max-width: 1200px;
+    max-height: 450px; /* Adjust this value as needed */
+  }
+}
+
+/* Further adjustments for very large desktops */
+@media (min-width: 1440px) {
+  .hero-header {
+    height: 25vh; /* Even smaller for very large screens */
+  }
+  .hero_image {
+    max-height: 400px; /* Adjust this value as needed */
+  }
+}
+
+.yellow {
+  background-color: #ffae42;
+}
+
+.red {
+  background-color: #ff0000 !important;
+}
+
+.red-text {
+  color: #ff0000;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.bg-color {
+  background-color: #008466;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.green-icon {
+  color: #008466;
+}
+
+.logo-icon {
+  width:25px;
+  height:25px;
+  vertical-align: sub;
+}
+
+.sub-text {
+  color: #008466;
+  font-size: 12px;
+}
+
+.material-icons, header {
+  color: white;
+}
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-color {
+  color: white;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.btn-engage {
+  background-color: #008466;
+  border-color: #008466;
+  color: white;
+  min-width: 120px;
+}
+
+
+
+.btn-plus {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.invisible {
+  visibility: hidden;
+}
+.bmd-drawer-in .navbar-nav{
+  opacity:0;
+  display: none;
+}
+.room-count{
+  position: relative;
+}
+.blur{
+  position: absolute;
+  top:0;
+  left:0;
+  background-color:rgb(240,240,240, 0.8);
+  width:100%;
+  height:100%;
+  z-index: 10;
+}
+
+.full-blur{
+  background-color:rgb(240,240,240, 1);
+}
+
+.loader {
+  border: 5px solid #c8c8c8;
+  border-top: 5px solid #008466;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top:100px;
+  left:50%;
+  transform:translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#video-player{
+  max-width:100%;
+}
+.disabled{
+  opacity: 0.3 !important;
+  cursor: default !important;
+}
+.modal-footer{
+  justify-content: center;
+}
+.modal-footer p{
+  text-align: center;
+}
+
+.toast {
+  background-color: #ffffff;
+  border-left: 5px solid #007BFF; /* Blue border for visual appeal */
+  color: #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toast-header {
+  background-color: #3F729B; /* Material Design Dark Blue */
+  color: #ffffff; /* White text */
+}
+
+.toast-body {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.toast .btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  margin: 5px;
+  background-color: #007BFF; /* Material Design Blue */
+  color: #ffffff; /* White text */
+}

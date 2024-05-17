@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="https://kit.fontawesome.com/199867d2e2.js" crossorigin="anonymous"></script>
+
+   
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+
+    <!-- Primary Meta Tags -->
+    <title>Hackerspace VLC aforos - Aforo</title>
+    <meta name="title" content="Hackerspace VLC aforos - Control de aforos">
+    <meta name="description" content="Hackerspace VLC aforos es una herramienta fácil de usar para controlar cuanta gente hay en tus salas.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hackvlc-aforo.pages.dev/">
+    <meta property="og:title" content="Hackerspace VLC aforos - Control de aforos">
+    <meta property="og:description" content="Hackerspace VLC aforos es una herramienta fácil de usar para controlar cuanta gente hay en tus salas.">
+    <meta property="og:image" content="/hackvlc-logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hackvlc-aforo.pages.dev/">
+    <meta property="twitter:title" content="Hackerspace VLC aforos - Control de aforos">
+    <meta property="twitter:description" content="Hackerspace VLC aforos es una herramienta fácil de usar para controlar cuanta gente hay en tus salas.">
+    <meta property="twitter:image" content="/hackvlc-logo.png">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/loaders.css">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+
+    <!-- Favicons
+    ================================================== -->
+  </head>
+  <body>
+    <div id="nav-drawer" class="bmd-layout-container bmd-drawer-f-l">
+      <header class="bmd-layout-header">
+        <div id="nav-color" class="navbar navbar-light bg-color">
+          <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
+            <span class="sr-only">Toggle drawer</span>
+            <i class="material-icons">menu</i>
+          </button>
+          <div class="nav-center">
+            <ul class="nav navbar-nav">
+              <a class="nav-color" href="/"><li class="nav-item">Hackerspace VLC aforos</li></a>            </ul>
+          </div>
+        </div>
+      </header>
+      <div id="dw-s1" class="bmd-layout-drawer bg-faded">
+        <header>
+          <a class="navbar-brand" style="color:#008466 !important;"><img class="logo-icon" src="https://commandercodingpublic.s3-us-west-2.amazonaws.com/logo_idea.png">&nbsp;Occupancy</a>
+        </header>
+        <ul class="list-group nav-links">
+          <a href="/" class="list-group-item">Empezar una sala</a>
+          <a href="/about" class="list-group-item">Sobre nosotros</a>
+        </ul>
+      </div>
+      <main class="bmd-layout-content">
+        <div id="link-copied" class="alert alert-success" role="alert" style="display: none;">
+          <strong>Clipboard</strong> Enlace copiado al portapapeles.
+          <button type="button" class="close" id="close-alert-btn" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="over-capacity" class="center d-none">
+          <br>
+          <p class="red-text">¡Se ha superado el aforo!</p>
+        </div>
+        <div class="container">
+          <section class="content">
+            <div class="main">
+              <h1><span class="room_name">Tu</span> aforo</h1>
+              <div class="room-count">
+                <div class="blur full-blur">
+                  <div class="loader"></div>
+                </div>
+                <div class="row center mx-3 no-gutters">
+                  <div class="col">
+                    <span id="current" class="space-value">0</span>
+                    <p>Aforo actual</p>
+                    <br>
+                    <div>
+                      <span id="max" class="space-value">0</span>
+                    </div>
+                    <p>Aforo máximo &nbsp;&nbsp;<i id="edit-max" class="fas fa-edit mx-0 green-icon" data-toggle="modal" data-target="#max-change"></i></p>
+                  </div>
+                  <div class="col edit-col">
+                    <br>
+                    <form id="p" >
+                      <button class="btn btn-plus bmd-btn-fab btn-space" type="submit"><span style="font-size:40px; vertical-align:bottom;">+</span></button>
+                    </form>
+                    <br><br>
+                    <form id="m" >
+                      <button class="btn btn-secondary btn-minus bmd-btn-fab btn-space" type="submit"><span style="font-size:40px; vertical-align:bottom;">-</span></button>
+                    </form>
+                  </div>
+                </div>
+                <br><br>
+                <div>
+                  <div class="progress" style="height: 20px;">
+                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <p class="float-left">0%</p>
+                  <p class="float-right">100%</p>
+                  <div class="clearfix"></div>
+                </div>
+                <br>
+                <div class="center">
+                  <p>Copiar URL de cliente/ QR de cleinte</p>
+                  <div>
+                    <a id="copy-customer"><i class="fas fa-copy fa-3x mr-3"></i></a><a id="toggle-qr-excode"><i class="fas fa-qrcode fa-3x mr-0" data-toggle="modal" data-target="#qr-exmodal"></i></a>
+                  </div>
+                </div>
+                <br>
+                <div class="center user">
+                  <p>Copiar URL de Staff/ QR de Staff</p>
+                  <div>
+                    <a id="copy"><i class="fas fa-copy fa-3x mr-3"></i></a><a id="toggle-qrcode"><i class="fas fa-qrcode fa-3x mr-0" data-toggle="modal" data-target="#qrmodal"></i></a>
+                  </div>
+                </div>
+                <br>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <br><br>
+    <footer id="footer" name="footer">
+      <div class="container">
+        <h3>¿Te gusta lo que ves? Síguenos en nuestra web</h3>
+        <hr>
+        <div class="social-icons">
+          <i><a href="https://hackvlc.es" target="_blank" rel="noopener"><i style="color:#008466;" class="fas fa-globe fa-3x"></i></a>
+        </div>
+        <br>
+        <br>
+      
+      </div>
+      <br><br>
+    </footer>
+
+    <!-- QR Code Modal -->
+    <div class="modal" id="qrmodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">QR Code</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="qrcode"></div>
+          </div>
+          <div class="modal-footer">
+            <p>Este código QR contiene la URL de tu espacio. Haz que alguien lo escanee si quieres darle acceso para editar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="qr-exmodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">QR de cliente</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="exqrcode"></div>
+          </div>
+          <div class="modal-footer">
+            <p>Este código solo mostrará el número, sin capacidad de edición.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Max Capacity Modal -->
+    <div class="modal" id="max-change" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Introduce el aforo máximo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="max-value-form">
+              <div class="form-group">
+                <label for="message" class="bmd-label-floating">Aforo máximo</label>
+                <input type="textarea" class="form-control" id="max-value">
+              </div>
+              <br>
+              <div class="center">
+                <button class="btn btn-raised btn-engage">
+                    Update
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <script src="/js/qrcode.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "hackerspace aforo",
+  "version": "0.0.1",
+  "description": "hackerspace aforo",
+  "dependencies": {
+    "express": "^4.15.2",
+    "loaders.css": "^0.1.2",
+    "socket.io": "^1.7.3"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
