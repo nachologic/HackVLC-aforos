@@ -240,7 +240,7 @@ $(function () {
   if ($("#qrcode").length) {
     var $mylocation = window.mylocation;
     if ($mylocation) {
-      new QRCode(document.getElementById("qrcode"), 'https://hackvlc-aforo.pages.dev/room/?i=' + $mylocation);
+      new QRCode(document.getElementById("qrcode"), 'https://hackvlc-aforos.pages.dev/room/?i=' + $mylocation);
     } else {
       console.error("No valid location found for QR code");
     }
@@ -249,7 +249,7 @@ $(function () {
   if ($("#exqrcode").length) {
     var $mylocation = window.mylocation;
     if ($mylocation) {
-      new QRCode(document.getElementById("exqrcode"), 'https://hackvlc-aforo.pages.dev/room/?i=' + $mylocation + '&ex=t');
+      new QRCode(document.getElementById("exqrcode"), 'https://hackvlc-aforos.pages.dev/room/?i=' + $mylocation + '&ex=t');
     } else {
       console.error("No valid location found for QR code");
     }
@@ -271,9 +271,9 @@ $(function () {
     var copyText;
 
     if (this.id === 'copy') {
-      copyText = 'https://hackvlc-aforo.pages.dev/room/?i=' + $mylocation;
+      copyText = 'https://hackvlc-aforos.pages.dev/room/?i=' + $mylocation;
     } else if (this.id === 'copy-customer') {
-      copyText = 'https://hackvlc-aforo.pages.dev/room/?i=' + $mylocation + '&ex=t';
+      copyText = 'https://hackvlc-aforos.pages.dev/room/?i=' + $mylocation + '&ex=t';
     }
 
     navigator.clipboard.writeText(copyText)
