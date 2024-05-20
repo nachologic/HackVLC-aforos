@@ -109,7 +109,7 @@ i {
   width: 100%;
   margin: auto;
   height: 30vh; /* Consider reducing this if it still appears too large */
-  background-image: url('../../Occupancy-App-UI/hackvlc-logo.png');
+  background-image: url('../hackvlc-logo.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
